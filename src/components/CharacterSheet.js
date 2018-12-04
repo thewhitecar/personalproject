@@ -53,6 +53,13 @@ export default class CharacterSheet extends Component {
     }
   }
 
+  componentDidMount(){
+    axios.get('/api/loginCheck').then(res=>{
+      if(!res.data){
+          this.props.history.push('/#/')
+      }
+  })
+  }
  
 
   render() {

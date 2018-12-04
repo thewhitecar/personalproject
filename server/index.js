@@ -34,6 +34,7 @@ app.post('/auth/login', authcontrol.login)
 app.post('/auth/register', authcontrol.register)
 app.get('/auth/logout', authcontrol.logout)
 app.get('/auth/currentUser',authcontrol.getCurrentUser)
+app.get('/auth/loginCheck', authcontrol.checkLogin)
 
 app.get('/api/characters/:id',cc.getCharacterById)
 app.post('/api/characters/bio', cc.addBio)

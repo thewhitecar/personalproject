@@ -28,7 +28,8 @@ module.exports = {
         try {
             const db = req.app.get('db')
             const {email, password} = req.body
-            let userResponse = await db.getUserbyEmail(email)
+            let userResponse = await db.getUserByEmail(email)
+            console.log(userResponse)
 
             if (userResponse[0]){
                 return res.status(409).send('email already taken')
@@ -39,6 +40,7 @@ module.exports = {
 
             let response = await db.createUser({email, hash})
             let newUser = response[0]
+            console.log(newUser)
 
             delete newUser.password
             req.session.user = newUser
@@ -51,6 +53,15 @@ module.exports = {
     logout:(req, res) =>{
         req.session.destroy()
         res.sendStatus(200)
+    },
+
+    checkLogin: (req, res) => {
+        if(req.session.loggedIn) {
+            res.send(true)
+        }
+        else {
+            res.send(false)
+        }
     },
 
     getCurrentUser:(req, res)=>{

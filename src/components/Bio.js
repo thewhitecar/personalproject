@@ -32,7 +32,7 @@ export default class Bio extends Component {
         <Header/>
         <h1>
         Bio
-        <BioForm/>
+       <BioForm/>
         </h1>
       </div>
     )

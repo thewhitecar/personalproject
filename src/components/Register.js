@@ -29,6 +29,7 @@ class Register extends Component {
       this.props.userLoggedIn(user)
     }).catch(err=>{
       console.log(err.response)
+      console.log(err.response.data)
       this.setState({
         error: err.response.data
       })
@@ -41,9 +42,9 @@ class Register extends Component {
         <h1>Registration</h1>
         <input
         type="text"
-        name="name"
-        placeholder="name"
-        value={this.state.name}
+        name="email"
+        placeholder="email"
+        value={this.state.email}
         onChange={this.handleChange}/>
         <input
         type="text"

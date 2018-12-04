@@ -7,7 +7,7 @@ import {userLoggedIn}from '../redux/reducer'
 class BasicInfo extends Component {
     constructor(props){
         super(props)
-        let { charactername, level, characterclass, paragon, destiny, race, size, age, gender, height, weight, alignment, diety, totalXp } =props.character
+        let { charactername, level, characterclass, paragon, destiny, race, size, age, gender, height, weight, alignment, diety, totalxp } =props.character
         this.state={
           basicInfo:{
             charactername,
@@ -15,7 +15,7 @@ class BasicInfo extends Component {
             characterclass,
             paragon,
             destiny,
-            totalXp,
+            totalxp,
             race,
             age, 
             gender, 
@@ -39,14 +39,14 @@ class BasicInfo extends Component {
           addDetails = ()=> {
             axios.post('/api/characters/details',this.state.basicInfo)
             .then(response=>{
-              let { charactername, level, characterclass, paragon, destiny, race, size, age, gender, height, weight, alignment, diety, totalXp } = response.data
+              let { charactername, level, characterclass, paragon, destiny, race, size, age, gender, height, weight, alignment, diety, totalxp } = response.data
               this.setState({
                 charactername,
                 level, 
                 characterclass, 
                 paragon, 
                 destiny, 
-                totalXp, 
+                totalxp, 
                 race, 
                 age, 
                 gender, 
@@ -59,7 +59,7 @@ class BasicInfo extends Component {
             }) 
           }
   render() {
-    let { charactername, level, characterclass, paragon, destiny, race, size, age, gender, height, weight, alignment, diety, totalXp } = this.state.basicInfo
+    let { charactername, level, characterclass, paragon, destiny, race, size, age, gender, height, weight, alignment, diety, totalxp } = this.state.basicInfo
     return (
       <div className="card card-body mb-3">
         <h1> <i class="fas fa-user-circle"></i>Basic Info</h1>
@@ -68,7 +68,7 @@ class BasicInfo extends Component {
         <div>Class:<input value={characterclass} onChange={(e)=>this.handleChange(e.target.value,'characterclass')}/></div>
         <div>Paragon:<input value={paragon} onChange={(e)=>this.handleChange(e.target.value,'paragon')}/></div>
         <div>Destiny:<input value={destiny} onChange={(e)=>this.handleChange(e.target.value,'destiny')}/></div>
-        <div>XP:<input value={totalXp} onChange={(e)=>this.handleChange(e.target.value,'totalXp')}/></div>
+        <div>XP:<input value={totalxp} onChange={(e)=>this.handleChange(e.target.value,'totalxp')}/></div>
         <div>Race:<input value={race} onChange={(e)=>this.handleChange(e.target.value,'race')}/></div>
         <div>Height:<input value={height} onChange={(e)=>this.handleChange(e.target.value,'height')}/></div>
         <div>Weight:<input value={weight} onChange={(e)=>this.handleChange(e.target.value,'weight')}/></div>

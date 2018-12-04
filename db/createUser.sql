@@ -1,3 +1,3 @@
-insert into users (email, hash)
+insert into characters (email, hash)
 values ( ${email}, ${hash})
 returning *
